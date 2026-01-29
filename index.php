@@ -1,6 +1,6 @@
 <?php
 require_once 'includes/config.php';
-require_once 'includes/lang.php'; // ✅ FICHIER UNIQUE
+require_once 'includes/lang.php'; //  FICHIER UNIQUE
 
 $db = Database::getInstance()->getConnection();
 
@@ -109,7 +109,7 @@ $flashMessage = getFlashMessage();
                 <li><a href="#formation"><?= __('nav_education') ?></a></li>
                 <li><a href="#contact"><?= __('nav_contact') ?></a></li>
                 
-                <!-- ✅ SÉLECTEUR LANGUE SIMPLE -->
+                <!--  SÉLECTEUR LANGUE SIMPLE -->
                 <li class="lang-switcher">
                     <div class="lang-dropdown">
                         <button class="lang-btn" type="button">
@@ -313,7 +313,7 @@ const html = document.documentElement;
 const sunIcon = document.querySelector('.sun');
 const moonIcon = document.querySelector('.moon');
 
-// 🔍 Obtenir le thème préféré
+//  Obtenir le thème préféré
 function getPreferredTheme() {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
@@ -323,7 +323,7 @@ function getPreferredTheme() {
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
 
-// 🎨 Appliquer le thème
+//  Appliquer le thème
 function setTheme(theme) {
     html.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
@@ -338,7 +338,7 @@ function setTheme(theme) {
     }
 }
 
-// 🔄 Toggle entre les thèmes
+//  Toggle entre les thèmes
 function toggleTheme() {
     const currentTheme = html.getAttribute('data-theme') || 'light';
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
@@ -350,13 +350,13 @@ function toggleTheme() {
     setTheme(newTheme);
 }
 
-// 🚀 Initialisation au chargement
+//  Initialisation au chargement
 setTheme(getPreferredTheme());
 
-// 🖱️ Événement clic
+//  Événement clic
 themeToggle.addEventListener('click', toggleTheme);
 
-// 🎧 Écouter les changements de préférence système (optionnel)
+// Écouter les changements de préférence système (optionnel)
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
     if (!localStorage.getItem('theme')) {
         setTheme(e.matches ? 'dark' : 'light');
